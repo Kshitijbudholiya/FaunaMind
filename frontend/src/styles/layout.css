@@ -1,0 +1,545 @@
+.app {
+  display: flex;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 320px;
+
+  flex-shrink: 0;
+  width: 320px;
+
+  background: var(--panel);
+
+  border-right: 1px solid var(--border);
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
+}
+
+.sidebar-top {
+  margin-bottom: 24px;
+}
+
+.new-story-btn {
+  width: 100%;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: var(--primary);
+
+  color: white;
+
+  padding: 14px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  font-weight: 600;
+}
+
+.new-story-btn:hover {
+  background: var(--primary-hover);
+}
+
+.sidebar-section {
+  margin-bottom: 24px;
+}
+
+.sidebar-section h3 {
+  margin-bottom: 12px;
+
+  color: var(--muted);
+}
+
+.session-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.session-item {
+  background: var(--panel2);
+
+  border: 1px solid var(--border);
+
+  color: white;
+
+  padding: 12px;
+
+  border-radius: 12px;
+
+  text-align: left;
+}
+
+.session-item:hover {
+  border-color: var(--accent);
+}
+
+.dataset-btn {
+  width: 100%;
+
+  padding: 12px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: var(--accent);
+
+  color: white;
+}
+
+.main {
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: 32px;
+}
+
+.upload-page {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.upload-container {
+  width: 100%;
+
+  max-width: 800px;
+
+  text-align: center;
+}
+
+.upload-container h1 {
+  font-size: 3rem;
+
+  margin-bottom: 12px;
+}
+
+.upload-container p {
+  color: var(--muted);
+
+  margin-bottom: 32px;
+}
+
+.upload-card {
+  background: var(--panel);
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  padding: 40px;
+}
+
+.upload-box {
+  border: 2px dashed var(--border);
+
+  border-radius: 16px;
+
+  padding: 60px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.upload-box:hover {
+  border-color: var(--accent);
+}
+
+.divider {
+  margin: 24px 0;
+
+  color: var(--muted);
+}
+
+.url-upload {
+  display: flex;
+
+  gap: 12px;
+}
+
+.url-upload input {
+  flex: 1;
+
+  padding: 14px;
+
+  border-radius: 12px;
+
+  border: 1px solid var(--border);
+
+  background: var(--panel2);
+
+  color: white;
+}
+
+.url-upload button {
+  padding: 14px 20px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: var(--primary);
+
+  color: white;
+}
+
+.loading {
+  margin-top: 24px;
+
+  color: var(--accent);
+}
+
+.story-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.story-image {
+  width: 100%;
+  max-height: 500px;
+
+  object-fit: cover;
+
+  border-radius: 20px;
+
+  border: 1px solid var(--border);
+}
+
+.analysis-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+.analysis-card {
+  background: var(--panel);
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+
+  padding: 20px;
+}
+
+.analysis-card h3 {
+  color: var(--muted);
+
+  margin-bottom: 10px;
+}
+
+.analysis-card p {
+  font-size: 1.3rem;
+
+  font-weight: 600;
+
+  text-transform: capitalize;
+}
+
+.story-card {
+  background: var(--panel);
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+
+  padding: 24px;
+}
+
+.story-card h2 {
+  margin-bottom: 20px;
+}
+
+.story-content {
+  white-space: pre-wrap;
+
+  line-height: 1.8;
+
+  max-height: 500px;
+
+  overflow-y: auto;
+}
+
+.chat-card {
+  background: var(--panel);
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+
+  padding: 24px;
+}
+
+.messages {
+  max-height: 500px;
+
+  overflow-y: auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 14px;
+
+  margin-top: 20px;
+
+  margin-bottom: 20px;
+}
+
+.message {
+  padding: 14px;
+
+  border-radius: 12px;
+}
+
+.message.user {
+  background: var(--panel2);
+}
+
+.message.assistant {
+  background: #162033;
+}
+
+.message-role {
+  font-size: 12px;
+
+  color: var(--accent);
+
+  margin-bottom: 8px;
+
+  text-transform: uppercase;
+}
+
+.message-content {
+  white-space: pre-wrap;
+}
+
+.chat-input {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.chat-input textarea {
+  min-height: 120px;
+
+  resize: vertical;
+
+  background: var(--panel2);
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  color: white;
+
+  padding: 14px;
+}
+
+.chat-input button {
+  align-self: flex-end;
+
+  border: none;
+
+  background: var(--primary);
+
+  color: white;
+
+  padding: 12px 24px;
+
+  border-radius: 12px;
+}
+
+.chat-input button:hover {
+  background: var(--primary-hover);
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+
+    height: auto;
+
+    border-right: none;
+
+    border-bottom: 1px solid
+      var(--border);
+  }
+
+  .analysis-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+  .url-upload {
+    flex-direction: column;
+  }
+
+  .story-image {
+    max-height: 250px;
+  }
+
+  .main {
+    padding: 16px;
+  }
+}
+
+.dataset-viewer {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.dataset-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.dataset-table {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.dataset-row {
+  background: var(--panel);
+
+  border: 1px solid
+    var(--border);
+
+  border-radius: 12px;
+
+  padding: 16px;
+}
+
+.story-preview {
+  margin-top: 12px;
+
+  color: var(--muted);
+
+  max-height: 100px;
+
+  overflow: hidden;
+}
+
+.dataset-actions {
+  margin-top: 12px;
+
+  display: flex;
+
+  gap: 10px;
+}
+
+.dataset-modal {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(
+    0,
+    0,
+    0,
+    0.6
+  );
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+}
+
+.dataset-form {
+  width: 700px;
+
+  max-width: 90vw;
+
+  background: var(--panel);
+
+  border-radius: 16px;
+
+  padding: 24px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+.dataset-form input,
+.dataset-form textarea {
+  background: var(--panel2);
+
+  border: 1px solid
+    var(--border);
+
+  border-radius: 12px;
+
+  padding: 12px;
+
+  color: white;
+}
+
+.dataset-form textarea {
+  min-height: 220px;
+}
+
+.form-actions {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 12px;
+}
