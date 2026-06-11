@@ -69,7 +69,7 @@ def _load_animal_model():
 
     model.load_state_dict(
         torch.load(
-            "./Models/animal_model.pth",
+            "./models/animal_model.pth",
             map_location=DEVICE,
         )
     )
@@ -79,7 +79,7 @@ def _load_animal_model():
 
     _animal_model = model
 
-    with open("./Models/data_animal.pkl", "rb") as f:
+    with open("./models/data_animal.pkl", "rb") as f:
         data = pickle.load(f)
 
     _animal_idx_to_label = data["idx_to_lable_map"]
@@ -95,7 +95,7 @@ def _load_scene_model():
     model = models.resnet50(num_classes=365)
 
     checkpoint = torch.load(
-        "./Models/resnet50_places365.pth.tar",
+        "./models/resnet50_places365.pth.tar",
         map_location="cpu",
     )
 
@@ -110,7 +110,7 @@ def _load_scene_model():
 
     _scene_model = model
 
-    with open("./Models/categories_places365.txt") as f:
+    with open("./models/categories_places365.txt") as f:
         _scene_classes = [line.strip().split(" ")[0][3:] for line in f]
 
 
@@ -121,7 +121,7 @@ def _load_story_model():
     if _story_model is not None:
         return
 
-    model_path = "./Models/Qwen"
+    model_path = "./models/Qwen"
 
     _story_tokenizer = AutoTokenizer.from_pretrained(
         model_path,
