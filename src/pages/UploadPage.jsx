@@ -5,9 +5,7 @@ export default function UploadPage({ onStoryCreated }) {
     <div className="upload-page">
       <div className="upload-container">
         <h1>FaunaMind</h1>
-
-        <p>Upload an image and let AI create a story automatically.</p>
-
+        <p>Upload an animal photo and let AI craft a story around it.</p>
         <ImageUploader onStoryCreated={onStoryCreated} />
       </div>
     </div>

@@ -1,28 +1,22 @@
 import { useState } from "react";
-
+import { MessageCircle, Send } from "lucide-react";
 import { api } from "../services/api";
 
 export default function ChatPanel({ session, setSession, refreshSessions }) {
   const [message, setMessage] = useState("");
-
   const [loading, setLoading] = useState(false);
 
   async function sendMessage() {
-    if (!message.trim()) return;
+    if (!message.trim() || loading) return;
 
     const userMessage = message;
-
     setMessage("");
 
     try {
       setLoading(true);
-
       await api.chat(session.id, userMessage);
-
       const updated = await api.getSession(session.id);
-
       setSession(updated);
-
       await refreshSessions();
     } catch (err) {
       alert(err.message);
@@ -31,15 +25,30 @@ export default function ChatPanel({ session, setSession, refreshSessions }) {
     }
   }
 
+  function handleKeyDown(e) {
+    if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
+      sendMessage();
+    }
+  }
+
   return (
     <div className="chat-card">
-      <h3>Chat</h3>
+      <div className="card-header">
+        <div className="card-icon blue">
+          <MessageCircle size={14} />
+        </div>
+        <h3>Chat</h3>
+      </div>
 
       <div className="messages">
+        {(!session.messages || session.messages.length === 0) && (
+          <div className="messages-empty">
+            Ask a question or continue the story…
+          </div>
+        )}
         {session.messages?.map((msg, index) => (
           <div key={index} className={`message ${msg.role}`}>
-            <div className="message-role">{msg.role}</div>
-
+            <div className="message-role">{msg.role === "user" ? "You" : "FaunaMind"}</div>
             <div className="message-content">{msg.content}</div>
           </div>
         ))}
@@ -49,12 +58,20 @@ export default function ChatPanel({ session, setSession, refreshSessions }) {
         <textarea
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder="Continue the story, ask a question, or finish the story..."
+          onKeyDown={handleKeyDown}
+          placeholder="Continue the story, ask a question… (⌘↵ to send)"
+          disabled={loading}
         />
-
-        <button onClick={sendMessage} disabled={loading}>
-          Send
-        </button>
+        <div className="chat-actions">
+          <button
+            className="btn btn-primary"
+            onClick={sendMessage}
+            disabled={loading || !message.trim()}
+          >
+            <Send size={13} />
+            {loading ? "Sending…" : "Send"}
+          </button>
+        </div>
       </div>
     </div>
   );

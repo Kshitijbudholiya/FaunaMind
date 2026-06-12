@@ -2,15 +2,12 @@ export default function AnalysisCards({ animal, scene }) {
   return (
     <div className="analysis-grid">
       <div className="analysis-card">
-        <h3>Animal</h3>
-
-        <p>{animal}</p>
+        <div className="analysis-card-label">Animal</div>
+        <div className="analysis-card-value">{animal}</div>
       </div>
-
       <div className="analysis-card">
-        <h3>Scene</h3>
-
-        <p>{scene}</p>
+        <div className="analysis-card-label">Scene</div>
+        <div className="analysis-card-value">{scene}</div>
       </div>
     </div>
   );

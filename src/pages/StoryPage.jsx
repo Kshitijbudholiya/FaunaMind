@@ -9,7 +9,7 @@ export default function StoryPage({ session, setSession, refreshSessions }) {
         <img
           className="story-image"
           src={`data:image/png;base64,${session.image_b64}`}
-          alt=""
+          alt={session.animal || "Animal photo"}
         />
       </div>
 
